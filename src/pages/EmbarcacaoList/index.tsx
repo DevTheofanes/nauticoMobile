@@ -1,102 +1,124 @@
-import React,{useState,useEffect} from 'react'
-import { View,Text,Image,ImageBackground,TextInput,Platform,TouchableOpacity,KeyboardAvoidingView } from 'react-native';
-import { Feather } from '@expo/vector-icons';
-import { BorderlessButton } from 'react-native-gesture-handler'
-import { useNavigation } from '@react-navigation/native';
-import Api from '../../service/auth';
+import React, { useState, useEffect } from "react";
+import {
+  View,
+  Text,
+  Image,
+  ImageBackground,
+  FlatList,
+  TextInput,
+  Platform,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from "react-native";
+import { Feather } from "@expo/vector-icons";
+import { BorderlessButton } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
+import api from "../../service/axios";
 
+import Backgroud from "../../assets/backgroudmenu.png";
+import styles from "./styles";
+import Logo from "../../assets/logo.png";
+import HeaderBack from "../../components/HeaderBack";
 
-
-
-
-import Backgroud from '../../assets/backgroudmenu.png';
-import styles from './styles';
-import Logo from '../../assets/logo.png';
-import Grupo56 from '../../assets/Grupo56.png';
-import Pasta from  '../../assets/Caminho46.png';
+// import Pasta from  '../../assets/Caminho46.png';
 
 interface Item {
-   id: number,
-   cidade: string,
-   uf: string,
-   peso: string,
-   valorfrete: string,
- }
+  id: number;
+  cidade: string;
+  uf: string;
+  peso: string;
+  valorfrete: string;
+}
 
+function EmbarcacaoList() {
+  const [name, setName] = useState("");
+  const [vessels, setVessels]: any = useState([]);
+  const [madeireiras, setMadeireiras] = useState<Item[]>([]);
 
-function EmbarcacaoList(){
-   const [name, setName] = useState('')
-    const [madeireiras, setMadeireiras] = useState<Item[]>([])
-  
+  const navigation = useNavigation();
+  const { navigate } = useNavigation();
 
-   const navigation = useNavigation();
-   const { navigate } = useNavigation();
+  function hadleNavigateToUserPerfil() {
+    navigate("UserPerfil");
+  }
 
+  function handleNavigateToVessel(vessel: any) {
+    navigate("DdEmbarcacao", { vessel });
+  }
 
-      function hadleNavigateToUserPerfil(){
-         navigate('UserPerfil')
-         }
+  async function loadMadereira() {
+    const response = await api.get("/vessels");
+    setVessels(response.data.allVessels);
+  }
 
-         function hadleNavigateToEmbarcacao(){
-          navigate('DdEmbarcacao')
-          }
+  useEffect(() => {
+    loadMadereira();
+  }, []);
 
-          async function loadMadereira(){
-            const response = await Api.embarcaçãoget(
-            );
-            setMadeireiras(response.data);
-            console.log(response);
-           } 
+  return (
+    <>
+      <ImageBackground
+        style={styles.container}
+        resizeMode="cover"
+        source={Backgroud}
+      >
+        <HeaderBack />
 
-           useEffect(() =>{
-            loadMadereira()
-          },[]);
-   
-   
-    return (
-        <>
-        <ImageBackground style={styles.container} resizeMode="cover" source={Backgroud}>
-        <View style={styles.containerBack}> 
-            <BorderlessButton onPress={navigation.goBack}>
-               <Feather name="log-out" size={24} color="#FFD246" />
-            </BorderlessButton>
-            <BorderlessButton  onPress={hadleNavigateToUserPerfil}>
-               <Feather name="menu" size={24} color="#FFD246" />
-            </BorderlessButton>
-           </View>
-            <View style={styles.containerbox}>
-                 <Image source={Grupo56} />
-            </View>
+        <View style={styles.boxTitle}>
+          <Text style={styles.title}>Todas as Embarcações </Text>
+        </View>
 
-            <View style={{backgroundColor:'#fff',width:364,height:123, borderRadius:8}}>
-              <View style={{justifyContent:'space-between',flexDirection:'row',alignItems:'center',marginTop:10,paddingHorizontal:20}} >
-                <Text style={{fontSize:11,color:'#000'}} >PROPRIETÁRIO:RODRIGO</Text>
-                <View style={{backgroundColor:'#FFD246',width:102,height:28,justifyContent:'center',alignItems:'center',borderRadius:8}} >
-                  <Text style={{fontSize:11,color:'#000',fontWeight:'bold'}}>JETSKI</Text>
+        <View style={styles.content}>
+          <FlatList
+            data={vessels}
+            keyExtractor={(vessel): any => vessel.id}
+            renderItem={({ item: vessel }) => (
+              <TouchableOpacity
+                style={styles.boxItem}
+                onPress={() => handleNavigateToVessel(vessel)}
+              >
+                <View style={styles.contentItem}>
+                  <Text style={styles.textItem}>
+                    <Text style={styles.textBold}>PROPRIETARIO:</Text>{" "}
+                    {vessel.proprietario}
+                  </Text>
+                  <Text style={styles.textItem}>
+                    <Text style={styles.textBold}>MARCA:</Text> {vessel.marca}
+                  </Text>
+                  <Text style={styles.textItem}>
+                    <Text style={styles.textBold}>MODELO:</Text> {vessel.modelo}
+                  </Text>
                 </View>
-              </View>
-              <View style={{alignItems:'center',marginTop:10,paddingHorizontal:20,justifyContent:'space-between',flexDirection:'row'}}>
-              <Text style={{fontSize:11,color:'#000'}} >MARCA:HONDA</Text>
-              <Text style={{fontSize:11,color:'#000'}} ></Text>
-              </View>
-              <View style={{alignItems:'center',marginTop:10,paddingHorizontal:20,justifyContent:'space-between',flexDirection:'row'}}>
-              <Text style={{fontSize:11,color:'#000'}} >MODELO</Text>
-              <Text style={{fontSize:11,color:'#000',marginRight:5}} >ANO: 2012</Text>
-              </View>
-            </View>
-            <View style={{justifyContent:'center',alignItems:'center'}}>
-            <TouchableOpacity onPress={hadleNavigateToEmbarcacao}  style={styles.containerButton}>
-                         <Feather name="plus" size={24} color="#000" />
-                        <Text style={styles.containerButtonText}>ADICIONAR NOVA  EMBARCAÇÃO</Text>
-                    </TouchableOpacity>
-            </View>
-          
-            <View style={styles.footer}>
-    <Image style={styles.footerImg} source={Logo} />
-    </View>
-    </ImageBackground>
+                <View style={styles.alignView}>
+                  <View style={styles.tagBox}>
+                    <Text style={styles.tagText}>
+                      {vessel.jetski ? "JETSKI" : "LANCHA"}
+                    </Text>
+                  </View>
+                  <Text style={styles.textItem}>
+                    <Text style={styles.textBold}>ANO:</Text> {vessel.ano}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+
+        {/* <View style={styles.footer}>
+          <Image style={styles.footerImg} source={Logo} />
+        </View> */}
+
+        <View style={styles.footer}>
+          <TouchableOpacity style={styles.containerButton}>
+            <Feather name="plus" size={18} color="#FFF" />
+            <Text style={styles.containerButtonText}>
+              CADASTRAR NOVA EMBARCAÇÃO
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
     </>
-    )
+  );
 }
 
 export default EmbarcacaoList;

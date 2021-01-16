@@ -1,90 +1,119 @@
-import { StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
+import { StyleSheet } from "react-native";
+import Constants from "expo-constants";
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingHorizontal:24,
-        paddingTop: 10 + Constants.statusBarHeight,
-      },
-      containerBack:{
-       justifyContent:'space-between',
-       flexDirection:'row',
-       alignItems:'center',
-       padding:24,
-       paddingTop:44,
-      },
-      forms:{
-        justifyContent:'center',
-        alignItems:'center'
-      },
-      containerbox:{
-        flexDirection:'row',
-        justifyContent:'center',
-        marginBottom:30,
-        marginTop:30
-      },
-      containerboxText:{
-       fontSize:23,
-       color:'#FFD246',
-       fontWeight:'700',
-       paddingHorizontal:10,
-      },
-      main:{
-        flexDirection:'row',
-        justifyContent:'center'
-      },
-      mainGrid:{},
-      mainlogo:{
-        width:227,
-        height:118,
-        marginBottom:90,
-      },
-      mainInputTextEsqueceuText:{color:'#fff',},
+  container: {
+    flex: 1,
+  },
 
-      mainInputButton:{
-        backgroundColor:'#fff',
-        width:269,
-        height:50,
-        borderRadius:14,
-        justifyContent:'center',
-        alignItems:'center',
-        textAlign:'center'
-      },
-      mainInputButtonText:{
-        fontSize:16,
-        color:'#535353'
-      },
-      footer:{
-        justifyContent:'center',
-        alignItems:'center',
-        height:130,
-        position:'relative',
-      },
-      footerImg:{
-        width:133,
-        height:70
-      },
-      footerTextBold:{
-        fontWeight:'800',
-        color:'#fff',
-        fontSize:14,
-      },
-      containerButton:{
-        width:270,
-        marginTop:20,
-        height:50,
-        borderRadius:10,
-        flexDirection:'row',
-        justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'#FFD246'
-      },
-      containerButtonText:{
-        color:'#000',
-        fontWeight:'bold',
-        fontSize:13,
-      },
-})
+  boxTitle: {
+    alignItems: "center",
+    marginTop: 8,
+  },
+
+  title: {
+    fontSize: 24,
+    color: "#FFF",
+    fontWeight: "bold",
+  },
+
+  content: {
+    alignItems: "center",
+    marginTop: 8,
+    maxHeight: "75%",
+  },
+
+  boxItem: {
+    backgroundColor: "#fff",
+    width: 364,
+    borderRadius: 8,
+    marginTop: 16,
+    padding: 16,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+
+  contentItem: {},
+
+  textItem: {
+    maxWidth: 220,
+    marginTop: 8,
+    fontSize: 11,
+    color: "#000",
+    textTransform: "uppercase",
+  },
+  textBold: {
+    fontWeight: "bold",
+  },
+
+  textItemParagrafo: {
+    maxWidth: 220,
+    marginTop: 8,
+    fontSize: 11,
+    color: "#000",
+    lineHeight: 17,
+  },
+
+  alignView: {
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+
+  tagBox: {
+    backgroundColor: "#FFD246",
+    width: 102,
+    height: 28,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 8,
+  },
+
+  tagText: { fontSize: 11, color: "#000", fontWeight: "bold" },
+
+  footer: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  containerButton: {
+    padding: 12,
+    marginTop: 20,
+    borderRadius: 10,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#FFD246",
+  },
+
+  containerButtonText: {
+    color: "#FFF",
+    fontWeight: "bold",
+    fontSize: 12,
+  },
+  footerImg: {
+    width: 133,
+    height: 70,
+  },
+  footerTextBold: {
+    fontWeight: "800",
+    color: "#fff",
+    fontSize: 14,
+  },
+  // containerButton: {
+  //   width: 270,
+  //   marginTop: 20,
+  //   height: 50,
+  //   borderRadius: 10,
+  //   flexDirection: "row",
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   backgroundColor: "#FFD246",
+  // },
+  // containerButtonText: {
+  //   color: "#000",
+  //   fontWeight: "bold",
+  //   fontSize: 13,
+  // },
+});
 
 export default styles;

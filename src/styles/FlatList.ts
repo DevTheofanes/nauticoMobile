@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import Constants from "expo-constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,7 +19,7 @@ const styles = StyleSheet.create({
   content: {
     alignItems: "center",
     marginTop: 8,
-    maxHeight: "75%",
+    maxHeight: "80%",
   },
 
   boxItem: {
@@ -64,27 +63,6 @@ const styles = StyleSheet.create({
   },
 
   tagText: { fontSize: 11, color: "#000", fontWeight: "bold" },
-
-  footer: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  containerButton: {
-    padding: 12,
-    marginTop: 20,
-    borderRadius: 10,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#FFD246",
-  },
-
-  containerButtonText: {
-    color: "#FFF",
-    fontWeight: "bold",
-    fontSize: 12,
-  },
 });
 
 export default styles;

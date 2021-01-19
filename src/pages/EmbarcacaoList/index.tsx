@@ -104,10 +104,6 @@ function EmbarcacaoList() {
           />
         </View>
 
-        {/* <View style={styles.footer}>
-          <Image style={styles.footerImg} source={Logo} />
-        </View> */}
-
         <View style={styles.footer}>
           <TouchableOpacity style={styles.containerButton}>
             <Feather name="plus" size={18} color="#FFF" />

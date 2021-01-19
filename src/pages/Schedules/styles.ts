@@ -3,11 +3,12 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 8,
   },
 
   boxTitle: {
     alignItems: "center",
-    marginTop: 8,
+    marginTop: 4,
   },
 
   title: {

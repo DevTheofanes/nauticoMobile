@@ -29,11 +29,13 @@ function Home() {
   const { signOut, user } = useAuth();
 
   function hadleNavigateToDdEmbarcacao() {
-    navigate("EmbarcacaoList");
+    // navigate("EmbarcacaoList");
+    navigate("Vessels");
   }
 
   function hadleNavigateToUserPerfil() {
-    navigate("PageListUsers");
+    // navigate("PageListUsers");
+    navigate("Users");
   }
 
   function hadleNavigateToDdJetSki() {
@@ -47,19 +49,21 @@ function Home() {
   }
 
   function hadleNavigateToCombustivel() {
-    navigate("Combustivel");
+    // navigate("Combustivel");
+    navigate("VesselSelect", { nextRoute: "Supply" });
   }
 
   //   function hadleNavigateToPagamentos() {
-  //     navigate("Pagamentos");
+
   //   }
 
   function hadleNavigateToPagamentos() {
-    navigate("Schedules");
+    navigate("Pagamentos");
   }
 
   function hadleNavigateToAgendamentoPass() {
-    navigate("AgendamentoPass");
+    // navigate("AgendamentoPass");
+    navigate("Schedules");
   }
 
   return (

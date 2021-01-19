@@ -4,7 +4,25 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 // import Login from '../pages/Login';
 import Home from "../pages/Home";
+import Vessels from "../pages/Vessels";
+import Vessel from "../pages/Vessels/Vessel";
+import VesselEdit from "../pages/Vessels/VesselEdit";
+import VesselSelect from "../pages/Vessels/VesselSelect";
+import VesselNew from "../pages/Vessels/VesselNew";
 import Schedules from "../pages/Schedules";
+import SchedulesDetails from "../pages/Schedules/SchedulesDetails";
+import Users from "../pages/Users";
+import UsersDetails from "../pages/Users/UserDetails";
+import UsersNew from "../pages/Users/UserNew";
+import RecoveryPassword from "../pages/RecoveryPassword";
+import Damaged from "../pages/Damaged";
+import DamagedEdit from "../pages/Damaged/DamagedEdit";
+import DamagedNew from "../pages/Damaged/DamagedNew";
+import Findings from "../pages/Findings";
+import FindingsEdit from "../pages/Findings/FindingEdit";
+import Review from "../pages/Review";
+import CheckList from "../pages/CheckList";
+import Supply from "../pages/Supply";
 import DdEmbarcacao from "../pages/DdEmbarcacao";
 import DdJetSki from "../pages/DdJetSki";
 import Revisao from "../pages/Revisao";
@@ -22,7 +40,7 @@ import CombustivelLacha from "../pages/CombustivelLancha";
 import AgendamentoPass from "../pages/AgendamentoPass";
 import UserPerfil from "../pages/UserPerfil";
 import AchadosPedidos from "../pages/AchadosPedidos";
-import CheckList from "../components/Checklist";
+// import CheckList from "../components/Checklist";
 import CheckList1 from "../components/Checklist/ChecklistJet/Checklist1";
 import CheckList2 from "../components/Checklist/ChecklistJet/Checklist2";
 import CheckList3 from "../components/Checklist/ChecklistJet/Checklist3";
@@ -45,9 +63,40 @@ const { Navigator, Screen } = createStackNavigator();
 
 export default function Routes() {
   return (
-    <Navigator screenOptions={{ headerShown: false }}>
+    <Navigator
+      screenOptions={{
+        headerShown: false,
+        cardStyle: { backgroundColor: "#535353" },
+      }}
+    >
       <Screen name="Home" component={Home} />
+
+      <Screen name="Vessels" component={Vessels} />
+      <Screen name="Vessel" component={Vessel} />
+      <Screen name="VesselEdit" component={VesselEdit} />
+      <Screen name="VesselNew" component={VesselNew} />
+      <Screen name="VesselSelect" component={VesselSelect} />
+
       <Screen name="Schedules" component={Schedules} />
+      <Screen name="SchedulesDetails" component={SchedulesDetails} />
+
+      <Screen name="Users" component={Users} />
+      <Screen name="UsersDetails" component={UsersDetails} />
+      <Screen name="UsersNew" component={UsersNew} />
+
+      <Screen name="RecoveryPassword" component={RecoveryPassword} />
+
+      <Screen name="Damaged" component={Damaged} />
+      <Screen name="DamagedEdit" component={DamagedEdit} />
+      <Screen name="DamagedNew" component={DamagedNew} />
+
+      <Screen name="Findings" component={Findings} />
+      <Screen name="FindingsEdit" component={FindingsEdit} />
+
+      <Screen name="Review" component={Review} />
+
+      <Screen name="Supply" component={Supply} />
+
       <Screen name="DdEmbarcacao" component={DdEmbarcacao} />
       <Screen name="DdJetSki" component={DdJetSki} />
       <Screen name="Revisao" component={Revisao} />
@@ -57,6 +106,7 @@ export default function Routes() {
       <Screen name="Combustivel" component={Combustivel} />
       <Screen name="Pagamentos" component={Pagamentos} />
       <Screen name="RecuperarPassword" component={RecuperarPassword} />
+      <Screen name="PageSucessoPassword" component={PageSucessoPassword} />
       <Screen name="Avarias" component={Avarias} />
       <Screen name="RevisaoJt" component={RevisaoJt} />
       <Screen name="RevisaoLancha" component={RevisaoLancha} />

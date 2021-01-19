@@ -15,7 +15,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import Api from "../../service/auth";
 
 import Backgroud from "../../assets/backgroudmenu.png";
-import HeaderBack from "../../components/HeaderBack";
+import HeaderBackEdit from "../../components/HeaderBackEdit";
 import styles from "./styles";
 import Logo from "../../assets/logo.png";
 import Grupo56 from "../../assets/Grupo56.png";
@@ -90,7 +90,7 @@ function DdEmbarcacao() {
       if ("") {
         navigate("Home");
       } else {
-        alert("E-mail ou senha errads");
+        alert("E-mail ou senha errados");
       }
     } else {
       alert("Preencha os campos");
@@ -104,13 +104,14 @@ function DdEmbarcacao() {
         resizeMode="cover"
         source={Backgroud}
       >
-        <HeaderBack />
+        <HeaderBackEdit route="Home" />
         <View style={styles.containerbox}>
           <Image source={Grupo56} />
           <Text style={styles.containerboxText}>
             Dados {jetski ? "do Jetski" : "da Lancha"}
           </Text>
         </View>
+
         <View style={styles.forms}>
           <View style={styles.fieldInput}>
             <Text style={styles.fieldInputText}>Nome:</Text>
@@ -229,5 +230,4 @@ function DdEmbarcacao() {
     </>
   );
 }
-
 export default DdEmbarcacao;

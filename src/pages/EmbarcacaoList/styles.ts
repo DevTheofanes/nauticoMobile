@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import Constants from "expo-constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -99,21 +98,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 14,
   },
-  // containerButton: {
-  //   width: 270,
-  //   marginTop: 20,
-  //   height: 50,
-  //   borderRadius: 10,
-  //   flexDirection: "row",
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   backgroundColor: "#FFD246",
-  // },
-  // containerButtonText: {
-  //   color: "#000",
-  //   fontWeight: "bold",
-  //   fontSize: 13,
-  // },
 });
 
 export default styles;

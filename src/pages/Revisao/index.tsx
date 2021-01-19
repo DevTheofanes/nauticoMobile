@@ -54,7 +54,7 @@ function Revisao() {
             <Text style={styles.mainInputButtonText}>Criar nova revisão</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={hadleNavigateToRevisaoJt}
+            // onPress={hadleNavigateToRevisaoJt}
             style={styles.mainInputButton}
           >
             <Text style={styles.mainInputButtonText}>
